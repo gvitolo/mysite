@@ -2,6 +2,7 @@ import { site, footer } from "@/data/content";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const linkedin = site.social.linkedin;
 
   return (
     <footer className="border-t border-white/[0.06] bg-background">
@@ -10,14 +11,16 @@ export function Footer() {
           © {year} {site.name}. {footer.note}
         </p>
         <div className="flex flex-wrap gap-6 text-sm">
-          <a
-            href={site.social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted transition-colors hover:text-foreground"
-          >
-            LinkedIn
-          </a>
+          {linkedin ? (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted transition-colors hover:text-foreground"
+            >
+              LinkedIn
+            </a>
+          ) : null}
           <a
             href={site.social.github}
             target="_blank"

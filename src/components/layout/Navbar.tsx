@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Mentors", href: "#mentors" },
+  { label: "Principles", href: "#principles" },
   { label: "Vision", href: "#vision" },
   { label: "Contact", href: "#contact" },
 ];
@@ -48,7 +48,7 @@ export function Navbar() {
           href="#hero"
           className="font-display text-sm font-semibold tracking-tight text-foreground transition-colors hover:text-accent"
         >
-          {site.name.split(" ")[0]}
+          {site.firstName}
           <span className="text-muted">.</span>
         </Link>
 

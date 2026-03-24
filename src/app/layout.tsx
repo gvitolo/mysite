@@ -19,13 +19,13 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Rivera — Engineer & Builder",
+  title: "Giuseppe Vitolo — Computer Engineering · Cybersecurity",
   description:
-    "Portfolio of Alex Rivera — computer engineering student, platform-minded builder, and systems-thinker.",
+    "Giuseppe Vitolo — Computer Engineering graduate and Master’s student at Aarhus University (cybersecurity). International direction, systems & security focus, Denmark-based.",
   openGraph: {
-    title: "Alex Rivera — Engineer & Builder",
+    title: "Giuseppe Vitolo — Computer Engineering · Cybersecurity",
     description:
-      "Portfolio — systems, product craft, and thoughtful software at the intersection of performance and design.",
+      "Portfolio — cybersecurity, distributed systems, formal methods, and disciplined engineering.",
     type: "website",
   },
 };

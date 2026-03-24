@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MotionReveal, MotionStagger, MotionStaggerItem } from "@/components/ui/MotionReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Section } from "@/components/layout/Section";
-import { skills, site } from "@/data/content";
+import { cv, skills } from "@/data/content";
 
 export function Skills() {
   return (
@@ -16,16 +16,32 @@ export function Skills() {
         <MotionReveal className="max-w-xl">
           <SectionHeading eyebrow={skills.eyebrow} title={skills.title} description={skills.summary} />
         </MotionReveal>
-        <MotionReveal delay={0.05}>
-          <a
-            href={site.cvHref}
-            className="inline-flex w-fit items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-accent/5"
-          >
-            Download CV
-            <span className="ml-2 text-xs text-muted">(add /public/cv.pdf)</span>
-          </a>
-        </MotionReveal>
+        {cv.available ? (
+          <MotionReveal delay={0.05}>
+            <a
+              href={cv.href}
+              className="inline-flex w-fit items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-accent/5"
+            >
+              Download CV
+            </a>
+          </MotionReveal>
+        ) : null}
       </div>
+
+      <MotionReveal delay={0.04} className="mt-10 rounded-2xl border border-white/[0.06] bg-surface/35 p-6 md:p-8">
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent/90">Education</p>
+        <ul className="mt-4 space-y-2 text-sm text-muted md:text-base">
+          {skills.educationSummary.map((line) => (
+            <li key={line} className="flex gap-2">
+              <span className="text-accent/80">·</span>
+              <span className="text-foreground/90">{line}</span>
+            </li>
+          ))}
+        </ul>
+        {!cv.available ? (
+          <p className="mt-6 text-sm text-muted">Full CV available on request — use the contact section.</p>
+        ) : null}
+      </MotionReveal>
 
       <MotionStagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {skills.categories.map((cat) => (
@@ -46,9 +62,9 @@ export function Skills() {
 
       <MotionReveal delay={0.1} className="mt-12 text-center">
         <p className="text-sm text-muted">
-          Prefer a conversation?{" "}
+          Prefer a direct line?{" "}
           <Link href="#contact" className="font-medium text-accent hover:text-accent/85">
-            Reach out directly
+            Contact
           </Link>
           .
         </p>

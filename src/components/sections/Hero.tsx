@@ -92,17 +92,17 @@ export function Hero() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(129,140,248,0.15),transparent_50%)]" />
             <div className="relative flex h-full flex-col justify-between p-8">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">Presence</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                  {hero.presence.label}
+                </p>
                 <p className="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground">
-                  {site.name.split(" ")[0]}
+                  {site.firstName}
                   <span className="text-accent">.</span>
                 </p>
               </div>
               <div className="space-y-3 text-sm text-muted">
-                <p className="leading-relaxed">
-                  Replace this panel with a portrait, a generative visual, or a product still — keep it
-                  intentional.
-                </p>
+                <p className="leading-relaxed">{hero.presence.line1}</p>
+                <p className="leading-relaxed text-foreground/85">{hero.presence.line2}</p>
                 <p className="font-mono text-xs text-foreground/70">{site.location}</p>
               </div>
             </div>

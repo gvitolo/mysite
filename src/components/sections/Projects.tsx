@@ -16,8 +16,8 @@ export function Projects() {
       <MotionReveal>
         <SectionHeading
           eyebrow="Portfolio"
-          title="Selected work"
-          description="Case-study framing — outcome first, craft visible, stack transparent."
+          title="Projects & technical narrative"
+          description="Internship-grade systems, an entrepreneurial build, and graduate depth — each described honestly, with stack and intent in view."
         />
       </MotionReveal>
 
@@ -74,20 +74,26 @@ export function Projects() {
                 ))}
               </ul>
 
-              <div className="mt-6 flex flex-wrap gap-3 border-t border-white/[0.06] pt-5">
-                {p.links.map((l) => (
-                  <Link
-                    key={l.label}
-                    href={l.href}
-                    target={l.href.startsWith("http") ? "_blank" : undefined}
-                    rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-sm font-medium text-accent transition-colors hover:text-accent/80"
-                  >
-                    {l.label}
-                    <span className="text-accent/60"> ↗</span>
-                  </Link>
-                ))}
-              </div>
+              {p.links.length > 0 ? (
+                <div className="mt-6 flex flex-wrap gap-3 border-t border-white/[0.06] pt-5">
+                  {p.links.map((l) => (
+                    <Link
+                      key={l.label}
+                      href={l.href}
+                      target={l.href.startsWith("http") ? "_blank" : undefined}
+                      rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-sm font-medium text-accent transition-colors hover:text-accent/80"
+                    >
+                      {l.label}
+                      <span className="text-accent/60"> ↗</span>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-6 border-t border-white/[0.06] pt-5 text-xs text-muted">
+                  No public link — details on request where appropriate.
+                </p>
+              )}
             </motion.article>
           </MotionReveal>
         ))}

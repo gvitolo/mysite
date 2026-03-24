@@ -1,15 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { MotionReveal } from "@/components/ui/MotionReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Section } from "@/components/layout/Section";
-import { contact, site } from "@/data/content";
+import { contact, cv, site } from "@/data/content";
 
 export function Contact() {
   const reduce = useReducedMotion();
+  const linkedin = site.social.linkedin;
 
   return (
     <Section id="contact" className="py-24 md:pb-32 md:pt-28">
@@ -25,39 +25,36 @@ export function Contact() {
           <MotionReveal delay={0.08} className="flex flex-col gap-4 lg:items-end">
             <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-end">
               <Button href={`mailto:${site.email}`} external>
-                Email me
+                Email
               </Button>
-              <Button href={site.social.linkedin} variant="secondary" external>
-                LinkedIn
+              <Button href={site.social.github} variant="secondary" external>
+                GitHub
               </Button>
+              {linkedin ? (
+                <Button href={linkedin} variant="secondary" external>
+                  LinkedIn
+                </Button>
+              ) : null}
             </div>
             <div className="flex flex-wrap gap-4 text-sm sm:justify-end">
-              <Link
-                href={site.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
+              <a
+                href={`mailto:${site.email}`}
                 className="text-muted transition-colors hover:text-foreground"
               >
-                GitHub
-              </Link>
-              <a href={site.cvHref} className="text-muted transition-colors hover:text-foreground">
-                CV PDF
+                {site.email}
               </a>
-              <Link
-                href={site.social.x}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted transition-colors hover:text-foreground"
-              >
-                X / Twitter
-              </Link>
+              {cv.available ? (
+                <a href={cv.href} className="text-muted transition-colors hover:text-foreground">
+                  CV (PDF)
+                </a>
+              ) : null}
             </div>
             <motion.p
               className="text-xs text-muted/80 sm:text-right"
               animate={reduce ? undefined : { opacity: [0.65, 1, 0.65] }}
               transition={reduce ? undefined : { duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              Typical reply within 48 hours · CET
+              {contact.replyNote}
             </motion.p>
           </MotionReveal>
         </div>

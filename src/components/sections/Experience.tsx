@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 const kindLabel = {
   education: "Education",
   work: "Experience",
+  internship: "Internship",
   milestone: "Milestone",
 } as const;
 
@@ -21,8 +22,8 @@ export function Experience() {
       <MotionReveal>
         <SectionHeading
           eyebrow="Trajectory"
-          title="Experience & education"
-          description="A concise arc — focused on outcomes, environments, and what each chapter taught."
+          title="Education & engineering experience"
+          description="Graduate study, foundational training, and industry-facing work — framed as real engineering, not coursework filler."
         />
       </MotionReveal>
 
